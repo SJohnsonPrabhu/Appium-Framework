@@ -188,9 +188,12 @@ public class UiObject {
 	}
 
 	public UiObject scrollDown() {
-//		WebElement element;
-//		Dimension screenSize = element.getSize();
-
+		WebElement element;
+		if (isxPath())
+			element = Android.driver.findElementByXPath(locator);
+		else
+			element = Android.driver.findElementByAndroidUIAutomator(locator);
+		
 		int startX = (int) (Android.driver.manage().window().getSize().getWidth() / 2);
 		int startY = (int) (Android.driver.manage().window().getSize().getHeight() * 3 / 4);
 		int endX = (int) (Android.driver.manage().window().getSize().getWidth() / 2);

@@ -8,7 +8,7 @@ import com.tests.TestPrimer;
 public class Executor {
 
 	@Test
-	public void Checker() throws InterruptedException {
+	public void Checker() {
 		DriverManager.createDriver();
 		TestPrimer.runner();
 	}
