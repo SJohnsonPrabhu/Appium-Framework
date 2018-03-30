@@ -2,21 +2,27 @@ package com.core;
 
 import java.time.Duration;
 
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
 import com.api.android.Android;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.reports.ExtentReport;
 
 import io.appium.java_client.TouchAction;
 
-public class UiObject {
+public class UiObject extends ExtentReport{
 
 	private String locator;
 
 	UiObject(String locator) {
 		this.locator = locator;
+		// test.log(Status.INFO, MarkupHelper.createLabel("UiObject used is: "+locator,
+		// ExtentColor.BROWN));
 		// MyLogger.log.info("New UiObject is: " + this.locator);
 	}
 
@@ -187,13 +193,14 @@ public class UiObject {
 		return this;
 	}
 
+	@Test
 	public UiObject scrollDown() {
 		WebElement element;
 		if (isxPath())
 			element = Android.driver.findElementByXPath(locator);
 		else
 			element = Android.driver.findElementByAndroidUIAutomator(locator);
-		
+
 		int startX = (int) (Android.driver.manage().window().getSize().getWidth() / 2);
 		int startY = (int) (Android.driver.manage().window().getSize().getHeight() * 3 / 4);
 		int endX = (int) (Android.driver.manage().window().getSize().getWidth() / 2);
@@ -204,6 +211,7 @@ public class UiObject {
 		for (scroll = 0; scroll < 10; scroll++) {
 			actions.press(startX, startY).waitAction(Duration.ofSeconds(1)).moveTo(endX, endY).release().perform();
 		}
+		test.log(Status.INFO, MarkupHelper.createLabel("Reached the last element", ExtentColor.BROWN));
 		return this;
 	}
 
