@@ -14,7 +14,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-public class ExtentReport{
+public class ExtentReport {
 
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
@@ -22,8 +22,7 @@ public class ExtentReport{
 
 	@BeforeSuite
 	public void setUpExtentReport() {
-		htmlReporter = new ExtentHtmlReporter(
-				System.getProperty("user.dir") + "/test-output/StudentAppTR.html");
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/StudentAppTR.html");
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/extent-config.xml");
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -36,24 +35,23 @@ public class ExtentReport{
 
 	@AfterMethod
 	public void getResult(ITestResult result) throws IOException {
-
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " Test Case Failed", ExtentColor.RED));
 			test.fail(result.getThrowable());
 			String failScreenshotPath = Screenshot.captureScreenshot(result, "Fail");
-			test.log(Status.INFO,"Kindly refer below Screenshot for more information: ");
+			test.log(Status.INFO, "Kindly refer below Screenshot for more information: ");
 			test.addScreenCaptureFromPath(failScreenshotPath);
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " Test Case Passed", ExtentColor.GREEN));
 			String passScreenshotPath = Screenshot.captureScreenshot(result, "Pass");
-			test.log(Status.INFO,"Kindly refer below Screenshot for more information: ");
+			test.log(Status.INFO, "Kindly refer below Screenshot for more information: ");
 			test.addScreenCaptureFromPath(passScreenshotPath);
 		} else {
 			test.log(Status.SKIP,
 					MarkupHelper.createLabel(result.getName() + " Test Case Skipped", ExtentColor.PURPLE));
 			test.skip(result.getThrowable());
 			String skipScreenshotPath = Screenshot.captureScreenshot(result, "Skip");
-			test.log(Status.INFO,"Kindly refer below Screenshot for more information: ");
+			test.log(Status.INFO, "Kindly refer below Screenshot for more information: ");
 			test.addScreenCaptureFromPath(skipScreenshotPath);
 		}
 	}

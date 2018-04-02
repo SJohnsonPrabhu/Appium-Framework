@@ -15,15 +15,12 @@ import com.reports.ExtentReport;
 
 import io.appium.java_client.TouchAction;
 
-public class UiObject extends ExtentReport{
+public class UiObject{
 
 	private String locator;
 
 	UiObject(String locator) {
 		this.locator = locator;
-		// test.log(Status.INFO, MarkupHelper.createLabel("UiObject used is: "+locator,
-		// ExtentColor.BROWN));
-		// MyLogger.log.info("New UiObject is: " + this.locator);
 	}
 
 	private boolean isxPath() {
@@ -193,7 +190,6 @@ public class UiObject extends ExtentReport{
 		return this;
 	}
 
-	@Test
 	public UiObject scrollDown() {
 		WebElement element;
 		if (isxPath())
@@ -211,7 +207,7 @@ public class UiObject extends ExtentReport{
 		for (scroll = 0; scroll < 10; scroll++) {
 			actions.press(startX, startY).waitAction(Duration.ofSeconds(1)).moveTo(endX, endY).release().perform();
 		}
-		test.log(Status.INFO, MarkupHelper.createLabel("Reached the last element", ExtentColor.BROWN));
+		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Reached the bottom of the screen", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -227,6 +223,7 @@ public class UiObject extends ExtentReport{
 		for (scroll = 0; scroll < 10; scroll++) {
 			actions.press(startX, startY).waitAction(Duration.ofSeconds(1)).moveTo(endX, endY).release().perform();
 		}
+		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Reached the top of the screen", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -265,6 +262,7 @@ public class UiObject extends ExtentReport{
 
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.tap(searchStartX, searchStartY).perform();
+		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Search text box tapped to enter search keyword", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -281,6 +279,7 @@ public class UiObject extends ExtentReport{
 
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.tap(backIconX, backIconY).perform();
+		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Back icon tapped from the search page", ExtentColor.BROWN));
 		return this;
 	}
 }
