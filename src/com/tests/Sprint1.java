@@ -35,9 +35,11 @@ public class Sprint1 extends ExtentReport{
 	}
 	
 	@Test (priority = 4)
-	public void searchBookByBookName() {
+	public void searchBookByBookName() throws InterruptedException {
 		test = extent.createTest("Sprint 1 - Search Book by Book Name");
+		studentApp.bookshelfSearch.uiObject.searchBook().tap();
 		studentApp.bookshelfSearch.uiObject.searchBook().typeKeys("book4");
+		Thread.sleep(2000);
 	}
 	
 	@Test (priority = 5)
@@ -47,9 +49,10 @@ public class Sprint1 extends ExtentReport{
 	}
 	
 	@Test (priority = 6)
-	public void searchBookByAuthorName() {
+	public void searchBookByAuthorName() throws InterruptedException {
 		test = extent.createTest("Sprint 1 - Search Book by Author Name");
 		studentApp.bookshelfSearch.uiObject.searchBook().typeKeys("Math");
+		Thread.sleep(2000);
 	}
 	
 	@Test (priority = 7)
@@ -59,14 +62,14 @@ public class Sprint1 extends ExtentReport{
 	}
 	
 	@Test (priority = 8)
-	public void tapCoverViewIcon() {
-		test = extent.createTest("Sprint 1 - Bookshelf Cover View");
-		studentApp.bookshelf.tapCoverViewIcon();
-	}
-	
-	@Test (priority = 9)
 	public void taplistViewIcon() {
 		test = extent.createTest("Sprint 1 - Bookshelf List View");
 		studentApp.bookshelf.taplistViewIcon();
+	}
+	
+	@Test (priority = 9)
+	public void tapCoverViewIcon() {
+		test = extent.createTest("Sprint 1 - Bookshelf Cover View");
+		studentApp.bookshelf.tapCoverViewIcon();
 	}
 }

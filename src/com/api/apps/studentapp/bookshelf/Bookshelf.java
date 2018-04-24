@@ -17,7 +17,8 @@ public class Bookshelf {
 			MyLogger.log.info("Tap the search icon");
 			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the search icon", ExtentColor.BROWN));
 			uiObject.search().tap();
-		} catch (NoSuchElementException e) {
+			Thread.sleep(2000);
+		} catch (NoSuchElementException | InterruptedException e) {
 			throw new AssertionError("Search icon is not available to tap");
 		}
 	}
@@ -49,7 +50,8 @@ public class Bookshelf {
 			MyLogger.log.info("Tap the list view icon");
 			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the list view icon", ExtentColor.BROWN));
 			uiObject.listView().tap();
-		} catch (NoSuchElementException e) {
+			Thread.sleep(2000);
+		} catch (NoSuchElementException | InterruptedException e) {
 			throw new AssertionError("List view icon is not available to tap");
 		}
 	}
@@ -59,7 +61,8 @@ public class Bookshelf {
 			MyLogger.log.info("Tap the cover view icon");
 			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the cover view icon", ExtentColor.BROWN));
 			uiObject.coverView().tap();
-		} catch (NoSuchElementException e) {
+			Thread.sleep(2000);
+		} catch (NoSuchElementException | InterruptedException e) {
 			throw new AssertionError("Cover view icon is not available to tap");
 		}
 	}

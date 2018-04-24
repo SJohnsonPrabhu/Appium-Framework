@@ -17,13 +17,13 @@
 		<!-- title of the document -->
 		<documentTitle>Student App Automation Result</documentTitle>
 
-		<ChartVisibilityOnOpen>true </ChartVisibilityOnOpen>
+		<ChartVisibilityOnOpen>true</ChartVisibilityOnOpen>
 
 		<!-- report name - displayed at top-nav -->
 		<reportName>
-			Sprint wise Results
+			Sprint One Test Results
 			<![CDATA[
-				<img src='/home/johnson/eclipse-workspace/AppiumFramework/Logo/download.png' />
+				<img src='/home/johnson/eclipse-workspace/AppiumFramework/Logo/FPIXLogo.png' />
 			]]>
 		</reportName>
 

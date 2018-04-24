@@ -3,7 +3,13 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="com.tests.Sprint1"/>
+			<class name="com.tests.Sprint1">
+			<!-- <methods>
+			    <include name="tapSearchIcon"></include>
+			    <include name="tapSearchTextbox"></include>
+			    <include name="searchBookByBookName"></include>
+			</methods> -->
+			</class>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

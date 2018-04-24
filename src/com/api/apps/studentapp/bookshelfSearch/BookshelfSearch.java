@@ -17,6 +17,7 @@ public class BookshelfSearch {
 			MyLogger.log.info("Tap the search text box");
 			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the search text box", ExtentColor.BROWN));
 			uiObject.searchBook().searchTextboxLocation();
+			
 		} catch (NoSuchElementException e) {
 			throw new AssertionError("Search text box is not available to click");
 		}
@@ -27,7 +28,8 @@ public class BookshelfSearch {
 			MyLogger.log.info("Tap the back icon");
 			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the back icon", ExtentColor.BROWN));
 			uiObject.searchPageBackIcon().searchPageBackIconLocation();
-		} catch (NoSuchElementException e) {
+			Thread.sleep(2000);
+		} catch (NoSuchElementException | InterruptedException e) {
 			throw new AssertionError("Search page back icon is not avaiable to tap");
 		}
 	}
@@ -38,7 +40,8 @@ public class BookshelfSearch {
 			ExtentReport.test.log(Status.INFO,
 					MarkupHelper.createLabel("Tap the search text close icon", ExtentColor.BROWN));
 			uiObject.searchTextCloseIcon().tap();
-		} catch (NoSuchElementException e) {
+			Thread.sleep(2000);
+		} catch (NoSuchElementException | InterruptedException e) {
 			throw new AssertionError("Search text close icon is not available to tap");
 		}
 
