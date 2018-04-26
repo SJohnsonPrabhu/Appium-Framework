@@ -17,7 +17,6 @@ public class BookshelfSearch {
 			MyLogger.log.info("Tap the search text box");
 			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the search text box", ExtentColor.BROWN));
 			uiObject.searchBook().searchTextboxLocation();
-			
 		} catch (NoSuchElementException e) {
 			throw new AssertionError("Search text box is not available to click");
 		}
@@ -44,6 +43,5 @@ public class BookshelfSearch {
 		} catch (NoSuchElementException | InterruptedException e) {
 			throw new AssertionError("Search text close icon is not available to tap");
 		}
-
 	}
 }

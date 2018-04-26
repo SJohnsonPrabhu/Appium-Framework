@@ -1,6 +1,7 @@
 package com.api.apps.studentapp;
 
 import com.api.android.Android;
+import com.api.apps.studentapp.book.Book;
 import com.api.apps.studentapp.bookshelf.Bookshelf;
 import com.api.apps.studentapp.bookshelfSearch.BookshelfSearch;
 import com.api.interfaces.Application;
@@ -9,6 +10,7 @@ public class StudentApp implements Application{
 	
 	public Bookshelf bookshelf = new Bookshelf();
 	public BookshelfSearch bookshelfSearch = new BookshelfSearch();
+	public Book book = new Book();
 
 	@Override
 	public void forceStop() {

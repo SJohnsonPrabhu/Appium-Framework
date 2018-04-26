@@ -1,7 +1,9 @@
 package com.core;
 
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
+import org.apache.xpath.operations.And;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
@@ -15,7 +17,7 @@ import com.reports.ExtentReport;
 
 import io.appium.java_client.TouchAction;
 
-public class UiObject{
+public class UiObject {
 
 	private String locator;
 
@@ -207,7 +209,8 @@ public class UiObject{
 		for (scroll = 0; scroll < 10; scroll++) {
 			actions.press(startX, startY).waitAction(Duration.ofSeconds(1)).moveTo(endX, endY).release().perform();
 		}
-		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Reached the bottom of the screen", ExtentColor.BROWN));
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Reached the bottom of the screen", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -223,7 +226,8 @@ public class UiObject{
 		for (scroll = 0; scroll < 10; scroll++) {
 			actions.press(startX, startY).waitAction(Duration.ofSeconds(1)).moveTo(endX, endY).release().perform();
 		}
-		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Reached the top of the screen", ExtentColor.BROWN));
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Reached the top of the screen", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -262,7 +266,8 @@ public class UiObject{
 
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.tap(searchStartX, searchStartY).perform();
-		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Search text box tapped to enter search keyword", ExtentColor.BROWN));
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Search text box tapped to enter search keyword", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -279,7 +284,45 @@ public class UiObject{
 
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.tap(backIconX, backIconY).perform();
-		ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Back icon tapped from the search page", ExtentColor.BROWN));
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Back icon tapped from the search page", ExtentColor.BROWN));
 		return this;
 	}
+
+	public UiObject slideToMaximum() {
+		WebElement element;
+		if (isxPath())
+			element = Android.driver.findElementByXPath(locator);
+		else
+			element = Android.driver.findElementByAndroidUIAutomator(locator);
+
+		Point elementLocation = element.getLocation();
+		int sliderEndX = (int) (elementLocation.x * 23);
+		int sliderEndY = (int) (elementLocation.y);
+
+		TouchAction actions = new TouchAction(Android.driver);
+		actions.longPress(element).moveTo(sliderEndX, sliderEndY).release().perform();
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Slider seek bar is moved to increase the brightness", ExtentColor.BROWN));
+		return this;
+	}
+
+	public UiObject slideToMinimum() {
+		WebElement element;
+		if (isxPath())
+			element = Android.driver.findElementByXPath(locator);
+		else
+			element = Android.driver.findElementByAndroidUIAutomator(locator);
+
+		Point elementLocation = element.getLocation();
+		int sliderEndX = (int) (elementLocation.x / 18);
+		int sliderEndY = (int) (elementLocation.y);
+
+		TouchAction actions = new TouchAction(Android.driver);
+		actions.longPress(element).moveTo(sliderEndX, sliderEndY).release().perform();
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Slider seek bar is moved to increase the brightness", ExtentColor.BROWN));
+		return this;
+	}
+
 }

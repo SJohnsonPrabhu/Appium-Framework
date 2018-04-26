@@ -10,6 +10,9 @@ public class BookshelfSearchUiObjects {
 	public UiObject searchBook() {
 		if (searchBook == null)
 			searchBook = new UiSelector().description("Search").makeUiObject();
+//			searchBook = new UiSelector()
+//					.xPath("//android.webkit.WebView[@content-desc='Fpix App']/android.widget.EditText[1]")
+//					.makeUiObject();
 		return searchBook;
 	}
 

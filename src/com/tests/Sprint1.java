@@ -11,7 +11,8 @@ public class Sprint1 extends ExtentReport{
 	private static StudentApp studentApp = Android.app.studentApp;
 
 	@Test (priority = 0)
-	public void scrollDownToLast() {
+	public void scrollDownToLast() throws InterruptedException {
+		Thread.sleep(20000);
 		test = extent.createTest("Sprint 1 - Scroll Down");
 		studentApp.bookshelf.scrollDownToLast();
 	}
@@ -37,8 +38,7 @@ public class Sprint1 extends ExtentReport{
 	@Test (priority = 4)
 	public void searchBookByBookName() throws InterruptedException {
 		test = extent.createTest("Sprint 1 - Search Book by Book Name");
-		studentApp.bookshelfSearch.uiObject.searchBook().tap();
-		studentApp.bookshelfSearch.uiObject.searchBook().typeKeys("book4");
+		studentApp.bookshelfSearch.uiObject.searchBook().typeKeys("Book4");
 		Thread.sleep(2000);
 	}
 	

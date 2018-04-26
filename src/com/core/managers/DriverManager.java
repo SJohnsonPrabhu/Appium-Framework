@@ -21,6 +21,7 @@ public class DriverManager {
 
 	private static HashMap<String, URL> hosts;
 	private static String appPackage = "io.appium.unlock";
+//	private static String appPackage = "com.fortunaPix.reader";
 
 	private static DesiredCapabilities getCaps(String deviceID) {
 		MyLogger.log.info("Setting the desired capabilities for " + deviceID);
@@ -29,8 +30,10 @@ public class DriverManager {
 		caps.setCapability(MobileCapabilityType.DEVICE_NAME,deviceID);
 		caps.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
 		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "6");
+//		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1.1");
 		caps.setCapability(MobileCapabilityType.ORIENTATION, "LANDSCAPE");
 		caps.setCapability("avd", "AVD_for_Lenovo-YT3-850M");
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
 		File apkPath = new File("/home/johnson/eclipse-workspace/AppiumFramework/APK","/FPIX.apk");
 		caps.setCapability(MobileCapabilityType.APP,apkPath.getAbsolutePath());
 		caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 6000);

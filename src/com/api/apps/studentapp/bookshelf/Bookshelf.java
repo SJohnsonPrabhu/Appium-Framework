@@ -66,4 +66,81 @@ public class Bookshelf {
 			throw new AssertionError("Cover view icon is not available to tap");
 		}
 	}
+
+	public void tapSortOptionDropDown() {
+		try {
+			MyLogger.log.info("Tap the sort option drop down");
+			ExtentReport.test.log(Status.INFO,
+					MarkupHelper.createLabel("Tap the sort option drop down", ExtentColor.BROWN));
+			uiObject.sortOption().tap();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Sort option drop down is not available to tap");
+		}
+	}
+
+	public void tapSortByTitle() {
+		try {
+			MyLogger.log.info("Tap the sort by title option");
+			ExtentReport.test.log(Status.INFO,
+					MarkupHelper.createLabel("Tap the sort by title option", ExtentColor.BROWN));
+			uiObject.sortByTitle().tap();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Title option is not available to tap");
+		}
+	}
+
+	public void tapSortByAuthors() {
+		try {
+			MyLogger.log.info("Tap the sort by authors option");
+			ExtentReport.test.log(Status.INFO,
+					MarkupHelper.createLabel("Tap the sort by authors option", ExtentColor.BROWN));
+			uiObject.sortByAuthors().tap();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Authors option is not available to tap");
+		}
+	}
+
+	public void tapBrightnessIcon() {
+		try {
+			MyLogger.log.info("Tap the brightness icon");
+			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the brightness icon", ExtentColor.BROWN));
+			uiObject.brightness().tap();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Brightness icon is not available to tap");
+		}
+	}
+
+	public void moveBrightnessSliderToMaximum() {
+		try {
+			MyLogger.log.info("Slide the brightness seek bar to maximum");
+			ExtentReport.test.log(Status.INFO,
+					MarkupHelper.createLabel("Slide the brightness seek bar to maximum", ExtentColor.BROWN));
+			uiObject.brightnessSeekBar().slideToMaximum();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Brightness seek bar is not available to slide");
+		}
+	}
+
+	public void moveBrightnessSliderToMinimum() {
+		try {
+			MyLogger.log.info("Slide the brightness seek bar to minimum");
+			ExtentReport.test.log(Status.INFO,
+					MarkupHelper.createLabel("Slide the brightness seek bar to minimum", ExtentColor.BROWN));
+			uiObject.brightnessSeekBar().slideToMinimum();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Brightness seek bar is not available to slide");
+		}
+	}
+	
+	public void openTheBook() {
+		try {
+			MyLogger.log.info("Tap the book to open");
+			ExtentReport.test.log(Status.INFO,
+					MarkupHelper.createLabel("Tap the book to open", ExtentColor.BROWN));
+			uiObject.openBook().tap();
+		} catch (NoSuchElementException e) {
+			throw new AssertionError("Book is not available to open");
+		}
+	}
+
 }
