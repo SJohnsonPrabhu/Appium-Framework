@@ -76,11 +76,32 @@ public class Sprint2 extends ExtentReport {
 		studentApp.book.uiObject.toc().waitToAppear(2);
 	}
 	
-//	@Test(priority=9)
-//	public void 
+	@Test(priority=9)
+	public void openTocSection() {
+		test = extent.createTest("Sprint 2 - Open the ToC section");
+		studentApp.book.tapTocSection();
+	}
 	
+	@Test(priority=10)
+	public void tapToEnableHeaderFooter() {
+		test = extent.createTest("Sprint 2 - View the Header and Footer");
+		studentApp.book.tapToEnableHeaderFooter();
+	}
 	
+	@Test(priority=11)
+	public void bookToBookshelf() {
+		test = extent.createTest("Sprint 2 - Back to Bookshelf Page");
+		studentApp.book.tapBackToBookshelf();
+	}
 	
+	@Test(priority=12)
+	public void tapBookBrightnessIcon() {
+		test = extent.createTest("Sprint 2 - Tap the Brightness Icon");
+		studentApp.bookshelf.openTheBook();
+		studentApp.book.tapToEnableHeaderFooter();
+		studentApp.book.tapBrightnessIcon();
+	}
+
 	
 	
 	

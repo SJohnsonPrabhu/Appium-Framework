@@ -325,4 +325,46 @@ public class UiObject {
 		return this;
 	}
 
+	public UiObject tapMiddleOfThePage() {
+		WebElement element;
+		if (isxPath())
+			element = Android.driver.findElementByXPath(locator);
+		else
+			element = Android.driver.findElementByAndroidUIAutomator(locator);
+
+		int pageMiddleX = (int) (Android.driver.manage().window().getSize().getHeight() / 2 );
+		int pageMiddleY = (int) (Android.driver.manage().window().getSize().getWidth() / 4 + 20);
+		
+		TouchAction actions = new TouchAction(Android.driver);
+		actions.tap(pageMiddleX, pageMiddleY).perform();
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Slider seek bar is moved to increase the brightness", ExtentColor.BROWN));
+		return this;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

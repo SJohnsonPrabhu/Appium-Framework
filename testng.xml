@@ -6,7 +6,7 @@
 			<!-- <class name="com.tests.Sprint1"/> -->
 			<class name="com.tests.Sprint2">
 			    <methods>
-			        <include name="openTheBook"></include>
+			        <include name="tapBookBrightnessIcon"></include>
 			    </methods>
 			    </class>
 		</classes>

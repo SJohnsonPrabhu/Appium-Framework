@@ -6,7 +6,7 @@ import com.core.UiSelector;
 public class BookshelfUiObjects {
 
 	private static UiObject topElement, lastElement, search, listView, coverView, sortOption, sortByAuthors,
-			sortByTitle, brightness, brightnessSeekBar,openBook;
+			sortByTitle, brightness, brightnessSeekBar, openBook;
 
 	public UiObject search() {
 		if (search == null)
@@ -77,23 +77,40 @@ public class BookshelfUiObjects {
 					.makeUiObject();
 		return brightnessSeekBar;
 	}
-	
-	public UiObject openBook() {
-		if (openBook==null)
-			openBook = new UiSelector().xPath("//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[4]/android.view.View[7]").makeUiObject();
-			return openBook;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+	public UiObject openBook() {
+		if (openBook == null)
+			openBook = new UiSelector().xPath(
+					"//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[4]/android.view.View[7]")
+					.makeUiObject();
+		return openBook;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
