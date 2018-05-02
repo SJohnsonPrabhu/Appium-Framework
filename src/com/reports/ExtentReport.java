@@ -29,7 +29,7 @@ public class ExtentReport {
 
 		extent.setSystemInfo("Environment", "QA");
 		extent.setSystemInfo("Operating System", "Ubuntu");
-		extent.setSystemInfo("Sprint", "One");
+		extent.setSystemInfo("Sprint", "Two");
 		extent.setSystemInfo("QA Name", "Johnson Prabhu");
 	}
 

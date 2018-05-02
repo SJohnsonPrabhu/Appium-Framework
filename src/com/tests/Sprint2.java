@@ -13,6 +13,7 @@ public class Sprint2 extends ExtentReport {
 	@Test(priority = 0)
 	public void tapSortOption() {
 		test = extent.createTest("Sprint 2 - Tap Sort Option");
+		studentApp.bookshelf.uiObject.openBook().waitToAppear(10);
 		studentApp.bookshelf.tapSortOptionDropDown();
 		studentApp.bookshelf.uiObject.sortOption().waitToAppear(2);
 	}
@@ -68,43 +69,77 @@ public class Sprint2 extends ExtentReport {
 		studentApp.bookshelf.moveBrightnessSliderToMinimum();
 		studentApp.bookshelf.uiObject.brightnessSeekBar().waitToAppear(2);
 	}
-	
-	@Test(priority=8)
+
+	@Test(priority = 8)
 	public void openTheBook() {
 		test = extent.createTest("Sprint 2 - Open the Book");
 		studentApp.bookshelf.openTheBook();
 		studentApp.book.uiObject.toc().waitToAppear(2);
 	}
-	
-	@Test(priority=9)
+
+	@Test(priority = 9)
 	public void openTocSection() {
 		test = extent.createTest("Sprint 2 - Open the ToC section");
 		studentApp.book.tapTocSection();
+		studentApp.book.uiObject.enableHeaderFooter().waitToAppear(2);
 	}
-	
-	@Test(priority=10)
+
+	@Test(priority = 10)
 	public void tapToEnableHeaderFooter() {
 		test = extent.createTest("Sprint 2 - View the Header and Footer");
 		studentApp.book.tapToEnableHeaderFooter();
+		studentApp.book.uiObject.backToBookshelf().waitToAppear(2);
 	}
-	
-	@Test(priority=11)
-	public void bookToBookshelf() {
+
+	@Test(priority = 11)
+	public void backToBookshelf() {
 		test = extent.createTest("Sprint 2 - Back to Bookshelf Page");
 		studentApp.book.tapBackToBookshelf();
+		studentApp.bookshelf.uiObject.openBook().waitToAppear(2);
 	}
-	
-	@Test(priority=12)
+
+	@Test(priority = 12)
 	public void tapBookBrightnessIcon() {
-		test = extent.createTest("Sprint 2 - Tap the Brightness Icon");
+		test = extent.createTest("Sprint 2 - Tap the Book Brightness Icon");
 		studentApp.bookshelf.openTheBook();
 		studentApp.book.tapToEnableHeaderFooter();
 		studentApp.book.tapBrightnessIcon();
+		studentApp.book.uiObject.defaultMode().waitToAppear(2);
 	}
 
-	
-	
-	
-	
+	@Test(priority = 13)
+	public void slideBookBrightnessToMaximum() {
+		test = extent.createTest("Sprint 2 - Brightness slider to maximum");
+		studentApp.book.moveBrightnessSliderToMaximum();
+		studentApp.book.uiObject.defaultMode().waitToAppear(2);
+	}
 
+	@Test(priority = 14)
+	public void slideBookBrightnessToMinimum() {
+		test = extent.createTest("Sprint 2 - Brightness slider to minimum");
+		studentApp.book.moveBrightnessSliderToMinimum();
+		studentApp.book.uiObject.defaultMode().waitToAppear(2);
+	}
+
+	@Test(priority = 15)
+	public void tapNightMode() {
+		test = extent.createTest("Sprint 2 - Tap the Night Mode");
+		studentApp.book.tapNightMode();
+		studentApp.book.uiObject.nightMode().waitToAppear(2);
+	}
+
+	@Test(priority = 16)
+	public void tapDefaultMode() {
+		test = extent.createTest("Sprint 2 - Tap the Default Mode");
+		studentApp.book.tapDefaultMode();
+		studentApp.book.uiObject.defaultMode().waitToAppear(2);
+	}
+
+	@Test(priority = 17)
+	public void bookToBookshelf() {
+		test = extent.createTest("Sprint 2 - Back to Bookshelf Page");
+		studentApp.book.tapBrightnessIcon();
+		studentApp.book.tapBackToBookshelf();
+		studentApp.bookshelf.uiObject.openBook().waitToAppear(2);
+	}
 }

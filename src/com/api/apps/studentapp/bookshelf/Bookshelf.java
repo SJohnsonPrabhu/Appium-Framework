@@ -131,12 +131,11 @@ public class Bookshelf {
 			throw new AssertionError("Brightness seek bar is not available to slide");
 		}
 	}
-	
+
 	public void openTheBook() {
 		try {
 			MyLogger.log.info("Tap the book to open");
-			ExtentReport.test.log(Status.INFO,
-					MarkupHelper.createLabel("Tap the book to open", ExtentColor.BROWN));
+			ExtentReport.test.log(Status.INFO, MarkupHelper.createLabel("Tap the book to open", ExtentColor.BROWN));
 			uiObject.openBook().tap();
 		} catch (NoSuchElementException e) {
 			throw new AssertionError("Book is not available to open");

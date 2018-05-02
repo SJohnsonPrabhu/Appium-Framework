@@ -297,13 +297,14 @@ public class UiObject {
 			element = Android.driver.findElementByAndroidUIAutomator(locator);
 
 		Point elementLocation = element.getLocation();
+		// System.out.println("elementLocation: "+elementLocation);
 		int sliderEndX = (int) (elementLocation.x * 23);
 		int sliderEndY = (int) (elementLocation.y);
 
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.longPress(element).moveTo(sliderEndX, sliderEndY).release().perform();
 		ExtentReport.test.log(Status.INFO,
-				MarkupHelper.createLabel("Slider seek bar is moved to increase the brightness", ExtentColor.BROWN));
+				MarkupHelper.createLabel("Slider is moved to increase the brightness", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -321,7 +322,7 @@ public class UiObject {
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.longPress(element).moveTo(sliderEndX, sliderEndY).release().perform();
 		ExtentReport.test.log(Status.INFO,
-				MarkupHelper.createLabel("Slider seek bar is moved to increase the brightness", ExtentColor.BROWN));
+				MarkupHelper.createLabel("Slider is moved to decrease the brightness", ExtentColor.BROWN));
 		return this;
 	}
 
@@ -332,39 +333,34 @@ public class UiObject {
 		else
 			element = Android.driver.findElementByAndroidUIAutomator(locator);
 
-		int pageMiddleX = (int) (Android.driver.manage().window().getSize().getHeight() / 2 );
+		int pageMiddleX = (int) (Android.driver.manage().window().getSize().getHeight() / 2);
 		int pageMiddleY = (int) (Android.driver.manage().window().getSize().getWidth() / 4 + 20);
-		
+
 		TouchAction actions = new TouchAction(Android.driver);
 		actions.tap(pageMiddleX, pageMiddleY).perform();
 		ExtentReport.test.log(Status.INFO,
-				MarkupHelper.createLabel("Slider seek bar is moved to increase the brightness", ExtentColor.BROWN));
+				MarkupHelper.createLabel("Navigated to the book page from ToC", ExtentColor.BROWN));
 		return this;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public UiObject slideBookBrightToMaximum() {
+		WebElement element;
+		if (isxPath())
+			element = Android.driver.findElementByXPath(locator);
+		else
+			element = Android.driver.findElementByAndroidUIAutomator(locator);
+
+		Point elementLocation = element.getLocation();
+		int sliderstartX = (int) (elementLocation.x + 90);
+		int sliderstartY = (int) (elementLocation.y + 100);
+		int sliderEndX = (int) (elementLocation.x + 600);
+		int sliderEndY = (int) (elementLocation.y + 100);
+
+		TouchAction actions = new TouchAction(Android.driver);
+		actions.longPress(sliderstartX, sliderstartY).moveTo(sliderEndX, sliderEndY).release().perform();
+		ExtentReport.test.log(Status.INFO,
+				MarkupHelper.createLabel("Slider is moved to increase the brightness", ExtentColor.BROWN));
+		return this;
+	}
+
 }

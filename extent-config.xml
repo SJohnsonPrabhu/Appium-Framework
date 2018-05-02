@@ -4,7 +4,7 @@
 
 		<!-- report theme -->
 		<!-- standard, dark -->
-		<theme>Standard</theme>
+		<theme>Dark</theme>
 
 		<!-- document encoding -->
 		<!-- defaults to UTF-8 -->
@@ -21,7 +21,7 @@
 
 		<!-- report name - displayed at top-nav -->
 		<reportName>
-			Sprint One Test Results
+			Sprint Two Test Results
 			<![CDATA[
 				<img src='/home/johnson/eclipse-workspace/AppiumFramework/Logo/FPIXLogo.png' />
 			]]>
