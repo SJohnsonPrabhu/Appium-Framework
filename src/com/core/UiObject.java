@@ -297,8 +297,8 @@ public class UiObject {
 			element = Android.driver.findElementByAndroidUIAutomator(locator);
 
 		Point elementLocation = element.getLocation();
-		// System.out.println("elementLocation: "+elementLocation);
-		int sliderEndX = (int) (elementLocation.x * 23);
+//		int sliderEndX = (int) (elementLocation.x * 23);
+		int sliderEndX = (int) (elementLocation.x * 30);
 		int sliderEndY = (int) (elementLocation.y);
 
 		TouchAction actions = new TouchAction(Android.driver);
@@ -316,7 +316,8 @@ public class UiObject {
 			element = Android.driver.findElementByAndroidUIAutomator(locator);
 
 		Point elementLocation = element.getLocation();
-		int sliderEndX = (int) (elementLocation.x / 18);
+//		int sliderEndX = (int) (elementLocation.x / 18);
+		int sliderEndX = (int) (elementLocation.x / 28);
 		int sliderEndY = (int) (elementLocation.y);
 
 		TouchAction actions = new TouchAction(Android.driver);

@@ -13,7 +13,7 @@ public class Sprint2 extends ExtentReport {
 	@Test(priority = 0)
 	public void tapSortOption() {
 		test = extent.createTest("Sprint 2 - Tap Sort Option");
-		studentApp.bookshelf.uiObject.openBook().waitToAppear(10);
+		studentApp.bookshelf.uiObject.sortOption().waitToAppear(10);
 		studentApp.bookshelf.tapSortOptionDropDown();
 		studentApp.bookshelf.uiObject.sortOption().waitToAppear(2);
 	}
@@ -52,6 +52,7 @@ public class Sprint2 extends ExtentReport {
 	@Test(priority = 5)
 	public void tapBrightnessIcon() {
 		test = extent.createTest("Sprint 2 - Tap the Brightness Icon");
+		studentApp.bookshelf.uiObject.sortOption().waitToAppear(10);
 		studentApp.bookshelf.tapBrightnessIcon();
 		studentApp.bookshelf.uiObject.brightnessSeekBar().waitToAppear(2);
 	}

@@ -46,7 +46,7 @@ public class BookshelfUiObjects {
 
 	public UiObject sortOption() {
 		if (sortOption == null)
-			sortOption = new UiSelector().descriptionContains("Sort By").makeUiObject();
+			sortOption = new UiSelector().descriptionContains("Sort").makeUiObject();
 		return sortOption;
 	}
 
@@ -72,17 +72,23 @@ public class BookshelfUiObjects {
 
 	public UiObject brightnessSeekBar() {
 		if (brightnessSeekBar == null)
-			brightnessSeekBar = new UiSelector().xPath(
-					"//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[4]/android.widget.SeekBar[1]")
-					.makeUiObject();
+//			brightnessSeekBar = new UiSelector().xPath(
+//					"//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[4]/android.widget.SeekBar[1]")
+//					.makeUiObject();
+		brightnessSeekBar = new UiSelector().xPath(
+				"//android.webkit.WebView[@content-desc='Fpix App']/android.widget.SeekBar[1]")
+				.makeUiObject();
 		return brightnessSeekBar;
 	}
 
 	public UiObject openBook() {
 		if (openBook == null)
-			openBook = new UiSelector().xPath(
-					"//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[4]/android.view.View[7]")
-					.makeUiObject();
+//			openBook = new UiSelector().xPath(
+//					"//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[4]/android.view.View[7]")
+//					.makeUiObject();
+			openBook = new UiSelector()
+				.xPath("//android.webkit.WebView[@content-desc='Fpix App']/android.view.View[10]/android.widget.Image[1]")
+				.makeUiObject();
 		return openBook;
 	}
 
